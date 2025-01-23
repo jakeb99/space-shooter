@@ -241,6 +241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4451162883578650768}
   movementSpeed: 10
+  dieEffect: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
+  health: 10
   CurrentWeapon: {fileID: 11400000, guid: e5e584f99242b6147a8ee835e1adaf82, type: 2}
   playerWeaponTip: {fileID: 3906700809704664909}
 --- !u!114 &752222454943065214

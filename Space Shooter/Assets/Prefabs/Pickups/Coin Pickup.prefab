@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4238447873231756365}
   - component: {fileID: 6831661424079855507}
-  - component: {fileID: 3282877411188961556}
-  - component: {fileID: 3702639089989701521}
+  - component: {fileID: 5013521112133193650}
+  - component: {fileID: 43045378125956640}
   m_Layer: 0
   m_Name: Coin Pickup
   m_TagString: Untagged
@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1056.9255, y: 547.5914, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.4089}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.41999996, y: 0.41999996, z: 0.17173798}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.34528297, g: 1, b: 0.4572341, a: 1}
+  m_Sprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
+  m_Color: {r: 1, g: 0.83215475, b: 0.34509802, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3282877411188961556
+--- !u!114 &5013521112133193650
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,12 +95,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5084090318755803043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9198db97305670469d9e5ac3879ec5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 09325f6d8c61ec042b4fd37b9b120566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healAmount: 15
---- !u!58 &3702639089989701521
-CircleCollider2D:
+  coinValue: 100
+--- !u!60 &43045378125956640
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,5 +132,23 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 0.5}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.02734375, y: 0.25}
+      - {x: -0.5, y: 0.02734375}
+      - {x: -0.5, y: -0.015625}
+      - {x: -0.0703125, y: -0.25}
+      - {x: 0.02734375, y: -0.25}
+      - {x: 0.5, y: -0.02734375}
+      - {x: 0.5, y: 0.015625}
+      - {x: 0.0703125, y: 0.25}
+  m_UseDelaunayMesh: 0

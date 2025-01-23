@@ -47,7 +47,12 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            _player.Attack();
+            _player.StartAttack();
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            _player.StopAttack();
         }
     }
 

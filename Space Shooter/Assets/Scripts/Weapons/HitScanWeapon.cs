@@ -11,6 +11,16 @@ public class HitScanWeapon : Weapon
 
     public override void Shoot(Transform weaponTip)
     {
-        // create hitscan
+
+    }
+
+    public override void StartShooting(Transform weaponTip)
+    {
+
+    }
+
+    public override void StopShooting()
+    {
+
     }
 }

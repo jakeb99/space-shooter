@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 5
   AmmoCount: 1000
-  FireRate: 1000
+  FireRate: 3
+  isShooting: 0
   _projectilePrefab: {fileID: 8904655978686583519, guid: ce6378c541e88764cac52e71011e66e7, type: 3}

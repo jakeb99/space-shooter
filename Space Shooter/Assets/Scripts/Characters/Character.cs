@@ -4,15 +4,20 @@ public abstract class Character : MonoBehaviour
 {
     [SerializeField] protected Rigidbody2D rb;
     [SerializeField] protected float movementSpeed;  // maybe define this from the player?
+    [SerializeField] private GameObject dieEffect;
+    [SerializeField] protected float health = 12f;
 
     public Health HealthValue;
     public Weapon CurrentWeapon;       // could have weapon only in children that have weapons
 
     protected virtual void Start()
     {
-        HealthValue = new Health(20f);
+
+        HealthValue = new Health(health);
+
         // subscribecharacter to OnDied event
         HealthValue.OnDied.AddListener(CharacterDied);
+       
     }
 
     public virtual void Move(Vector2 direction)
@@ -22,6 +27,8 @@ public abstract class Character : MonoBehaviour
 
     public virtual void CharacterDied()
     {
+        Instantiate(dieEffect, transform.position, Quaternion.identity);
+        AudioManager.Instance.PlaySFX("Explosion");
         Destroy(gameObject);
     }
 
@@ -38,7 +45,17 @@ public abstract class Character : MonoBehaviour
         rb.SetRotation(angle);
     }
 
-    public virtual void Attack()
+    public virtual void Attack() // attack instatiates the bullet
+    {
+
+    }
+
+    public virtual void StartAttack() // as i press the mouse down
+    {
+
+    }
+
+    public virtual void StopAttack() // as i release the mouse button
     {
 
     }

@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.06043, y: 1.3574, z: 0}
-  m_LocalScale: {x: 0.0791316, y: 0.20440459, z: 0.17}
+  m_LocalScale: {x: 0.46548, y: 1.20238, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: a9c7adccd9b812d43bfc3347c60e8ed2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 34b1b35a97859fe4ea970ff7752258fc, type: 3}
   m_Color: {r: 1, g: 0.107023746, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,6 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 810458489304154563}
   _bulletSpeed: 10
+  bulletDamage: 0
+  bulletTime: 10
 --- !u!70 &7672365643272487070
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,5 +163,5 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.09, y: 0.54}
   m_Direction: 0

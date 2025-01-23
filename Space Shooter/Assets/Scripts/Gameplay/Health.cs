@@ -8,6 +8,7 @@ public class Health
 
     public UnityEvent OnDied;
     public UnityEvent<float> OnHealthUpdate;
+    private bool OnDiedHasBeenCalled = false;
 
     public Health (float initialHealthValue = 100f)
     {
@@ -27,14 +28,15 @@ public class Health
     public void DecreaseHealth(float damageAmount)
     {
         healthValue -= damageAmount;
-        Debug.Log($"health is {healthValue}");
+        //Debug.Log($"health is {healthValue}");
 
         // tell listeners that the health has changed
         OnHealthUpdate.Invoke(healthValue);
 
-        if (IsDead())
+        if (IsDead() && !OnDiedHasBeenCalled)
         {
             OnDied.Invoke();
+            OnDiedHasBeenCalled = true;
         }
 
 

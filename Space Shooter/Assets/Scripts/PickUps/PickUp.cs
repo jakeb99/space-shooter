@@ -12,6 +12,9 @@ public abstract class PickUp : MonoBehaviour
         {
             Debug.Log(collision.attachedRigidbody.GetComponent<Player>());
             PickMeUp(collision.attachedRigidbody.GetComponent<Player>());
+
+            AudioManager.Instance.PlaySFX("PickUp");
+
             Destroy(gameObject);
         }
     }

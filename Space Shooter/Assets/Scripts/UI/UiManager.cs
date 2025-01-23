@@ -7,6 +7,7 @@ public class UiManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI highScoreText;
 
     private void Start()
     {
@@ -19,6 +20,8 @@ public class UiManager : MonoBehaviour
         
         // update starting player health
         UpdateHealthValue(playerHealthObj.GetHealthValue());
+
+        GameManager.Instance.OnGameOver.AddListener(UpdateHighScoreValue);
         
     }
 
@@ -30,5 +33,11 @@ public class UiManager : MonoBehaviour
     public void UpdateHealthValue(float totalHealth)
     {
         healthText.text = totalHealth.ToString();
+    }
+
+    public void UpdateHighScoreValue()
+    {
+        var highScore = FindObjectOfType<ScoreManager>().highestScore;
+        highScoreText.text =  "Highscore:  " + highScore.ToString();
     }
 }

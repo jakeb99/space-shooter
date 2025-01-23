@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
     public UnityEvent<int> OnScoreUpdate;
 
     [SerializeField] private int totalScore;
-    [SerializeField] private int highestScore;
+    [SerializeField] public int highestScore;
 
     [SerializeField] private List<ScoreData> allScores = new List<ScoreData>();
     [SerializeField] private ScoreData latestScore;

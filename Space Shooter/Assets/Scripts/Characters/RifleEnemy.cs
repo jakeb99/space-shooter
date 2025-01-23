@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RifleEnemy : MonoBehaviour
+public class RifleEnemy : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform weaponTip;
 
-    // Update is called once per frame
-    void Update()
+    public override void Attack()
     {
-        
+        if (attackTimer >= attackCooldown)
+        {
+            CurrentWeapon.StartShooting(weaponTip);
+            attackTimer = 0;
+        } else
+        {
+            attackTimer += Time.deltaTime;
+        }
     }
 }

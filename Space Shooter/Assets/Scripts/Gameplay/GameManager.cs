@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -10,7 +11,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private List<Enemy> enemyList;
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private List<Enemy> aliveEnemiesList;
+    [SerializeField] public List<Enemy> aliveEnemiesList;
+    [SerializeField] private int totalEnemiesKilled;
 
     public ScoreManager scoreManager;
 
@@ -55,7 +57,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             // do something here
-            if (aliveEnemiesList.Count < 20)
+            if (aliveEnemiesList.Count < SpawnCount())
             {
                 // do something else after we wait
                 Enemy clone = SpawnEnemy();
@@ -69,10 +71,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private int SpawnCount()
+    {
+        if (totalEnemiesKilled < 10) return 3;
+        else if (totalEnemiesKilled < 15) return 7;
+        else if (totalEnemiesKilled < 25) return 13;
+        else return 20;
+    }
+
     public void RemoveEnemyFromAliveList(Enemy enemyToRemove)
     {
         scoreManager.IncreaseScore(enemyToRemove.ScoreType);
         aliveEnemiesList.Remove(enemyToRemove);
+        totalEnemiesKilled++;
     }
 
     private void GameOver()
@@ -84,6 +95,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StopAllCoroutines();
+        Debug.Log(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

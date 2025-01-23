@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : Character
@@ -8,7 +9,10 @@ public class Enemy : Character
     [SerializeField] protected float attackCooldown = 3f;
     [SerializeField] public EScoreType ScoreType {  get; protected set; }
 
-    private float attackTimer;
+    [SerializeField] protected float attackTimer;
+
+    [SerializeField] public List<GameObject> PickUps = new List<GameObject>();
+    [SerializeField] private float pickUpChance;
 
     protected override void Start()
     {
@@ -49,7 +53,7 @@ public class Enemy : Character
         // check if we can attack
         if(attackTimer >= attackCooldown)
         {
-            target.HealthValue.DecreaseHealth(1);
+            //target.HealthValue.DecreaseHealth(1);
             attackTimer = 0; // reset timer
         }
         else
@@ -60,8 +64,22 @@ public class Enemy : Character
 
     public override void CharacterDied()
     {
+        // spawn pickup
+        if (ShouldDropPickup())
+        {
+            int rollIndex = Random.Range(0, PickUps.Count);
+            Instantiate(PickUps[rollIndex], transform.position, transform.rotation);
+        }
+
         GameManager.Instance.RemoveEnemyFromAliveList(this);
         base.CharacterDied();
+
+    }
+
+    private bool ShouldDropPickup()
+    {
+        float roll = Random.Range(0f, 1f);
+        return roll <= pickUpChance;
     }
 
 }

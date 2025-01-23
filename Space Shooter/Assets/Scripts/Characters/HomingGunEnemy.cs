@@ -5,5 +5,5 @@ using UnityEngine;
 
 public class HomingGunEnemy : Enemy
 {
-
+    public float homingRange;
 }

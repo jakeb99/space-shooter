@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 308524814998005966, guid: e27f7e8c219a4084692c95c5c4c58343, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2105108431305258830, guid: e27f7e8c219a4084692c95c5c4c58343, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
@@ -126,6 +130,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6975714997451275939, guid: e27f7e8c219a4084692c95c5c4c58343, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975714997451275939, guid: e27f7e8c219a4084692c95c5c4c58343, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7413522681139415303, guid: e27f7e8c219a4084692c95c5c4c58343, type: 3}
@@ -211,9 +219,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1466546442599762992}
   movementSpeed: 7
+  dieEffect: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
+  health: 10
   CurrentWeapon: {fileID: 0}
   distanceToStop: 2
   attackCooldown: 3
+  attackTimer: 0
+  PickUps:
+  - {fileID: 5084090318755803043, guid: 9acf6ed75dab99148a801b802f63ce57, type: 3}
+  - {fileID: 5084090318755803043, guid: 2040d1d990445714db30524c004ed45d, type: 3}
+  - {fileID: 5084090318755803043, guid: 05042137e44e14e4aaaa477627e4a80f, type: 3}
+  pickUpChance: 1
 --- !u!1 &3303272233841394798 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 308524814998005966, guid: e27f7e8c219a4084692c95c5c4c58343, type: 3}

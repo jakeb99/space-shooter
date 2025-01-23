@@ -8,25 +8,46 @@ public class ProjectileWeapon : Weapon
 {
     [SerializeField] private Bullet _projectilePrefab;
 
-    // don't need constructors when using scriptable objects
-    //public ProjectileWeapon(Transform  weaponTip, GameObject projectilePrefab) : base(weaponTip)
-    //{
-    //    _projectilePrefab = projectilePrefab;
-    //}
-
-    //public ProjectileWeapon(Transform weaponTip) : base(weaponTip)
-    //{
-    //}
-
-    public override void Shoot(Transform weaponTip)
+    public override void StartShooting(Transform weaponTip)
     {
-        Bullet bullteClone = GameObject.Instantiate(_projectilePrefab, weaponTip.position, weaponTip.rotation);
-        bullteClone.InitializeBullet(this);    
+        isShooting = true;
+        Shoot(weaponTip);
+        
+        StopShooting();
     }
 
     public override void Reload()
     {
 
     }
+
+    public override void Shoot(Transform weaponTip)
+    {
+        if (isShooting)
+        {
+            Bullet bullteClone = GameObject.Instantiate(_projectilePrefab, weaponTip.position, weaponTip.rotation);
+            AudioManager.Instance.PlaySFX("Lazer");
+            bullteClone.InitializeBullet(this);
+            //if (FireDelay >= 1 / FireRate)
+            //{
+            //    //canShoot = false;
+            //    Bullet bullteClone = GameObject.Instantiate(_projectilePrefab, weaponTip.position, weaponTip.rotation);
+            //    bullteClone.InitializeBullet(this);
+            //    FireDelay = 0;
+            //}
+            //else
+            //{
+            //    FireDelay += Time.deltaTime;
+            //}
+
+
+        }
+    }
+
+    public override void StopShooting()
+    {
+        isShooting = false;
+    }
+
 
 }

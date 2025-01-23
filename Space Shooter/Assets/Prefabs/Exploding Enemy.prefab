@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.3843137
       objectReference: {fileID: 0}
+    - target: {fileID: 5283068588032053763, guid: a7e46a492194bf54795c8ec5f493d90f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5506934382145203285, guid: a7e46a492194bf54795c8ec5f493d90f, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -101,6 +105,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5988917116570836710}
   movementSpeed: 4
+  dieEffect: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
+  health: 15
   CurrentWeapon: {fileID: 0}
   distanceToStop: 0
   attackCooldown: 3
+  attackTimer: 0
+  PickUps:
+  - {fileID: 5084090318755803043, guid: 9acf6ed75dab99148a801b802f63ce57, type: 3}
+  - {fileID: 5084090318755803043, guid: 2040d1d990445714db30524c004ed45d, type: 3}
+  - {fileID: 5084090318755803043, guid: 05042137e44e14e4aaaa477627e4a80f, type: 3}
+  pickUpChance: 1
+  explosionDamage: 100
